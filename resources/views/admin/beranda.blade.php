@@ -11,13 +11,16 @@
 </div>
 
 <div class="row g-4 mb-4">
+    <!-- Total Siswa -->
     <div class="col-sm-6 col-xl-3">
         <div class="card border-0 shadow-sm rounded-3 h-100">
             <div class="card-body p-4">
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <h6 class="text-muted mb-2">Total Siswa</h6>
-                        <h2 class="fw-bold mb-0">{{ $statistik['total_siswa'] }}</h2>
+                        <h2 class="fw-bold mb-0" id="stat_total_siswa">
+                            <span class="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span>
+                        </h2>
                     </div>
                     <div class="bg-primary bg-opacity-10 p-3 rounded-3 text-primary">
                         <i class="bi bi-people fs-4"></i>
@@ -27,13 +30,16 @@
         </div>
     </div>
 
+    <!-- Siswa Aktif Magang -->
     <div class="col-sm-6 col-xl-3">
         <div class="card border-0 shadow-sm rounded-3 h-100">
             <div class="card-body p-4">
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <h6 class="text-muted mb-2">Siswa Aktif Magang</h6>
-                        <h2 class="fw-bold mb-0">{{ $statistik['siswa_aktif_magang'] }}</h2>
+                        <h2 class="fw-bold mb-0" id="stat_siswa_aktif">
+                            <span class="spinner-border spinner-border-sm text-success" role="status" aria-hidden="true"></span>
+                        </h2>
                     </div>
                     <div class="bg-success bg-opacity-10 p-3 rounded-3 text-success">
                         <i class="bi bi-person-check fs-4"></i>
@@ -43,13 +49,16 @@
         </div>
     </div>
 
+    <!-- Guru Pembimbing -->
     <div class="col-sm-6 col-xl-3">
         <div class="card border-0 shadow-sm rounded-3 h-100">
             <div class="card-body p-4">
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <h6 class="text-muted mb-2">Guru Pembimbing</h6>
-                        <h2 class="fw-bold mb-0">{{ $statistik['total_guru'] }}</h2>
+                        <h2 class="fw-bold mb-0" id="stat_total_guru">
+                            <span class="spinner-border spinner-border-sm text-warning" role="status" aria-hidden="true"></span>
+                        </h2>
                     </div>
                     <div class="bg-warning bg-opacity-10 p-3 rounded-3 text-warning">
                         <i class="bi bi-person-badge fs-4"></i>
@@ -59,13 +68,16 @@
         </div>
     </div>
 
+    <!-- Mitra Industri (DUDI) -->
     <div class="col-sm-6 col-xl-3">
         <div class="card border-0 shadow-sm rounded-3 h-100">
             <div class="card-body p-4">
                 <div class="d-flex justify-content-between align-items-start">
                     <div>
                         <h6 class="text-muted mb-2">Mitra Industri (DUDI)</h6>
-                        <h2 class="fw-bold mb-0">{{ $statistik['total_dudi'] }}</h2>
+                        <h2 class="fw-bold mb-0" id="stat_total_dudi">
+                            <span class="spinner-border spinner-border-sm text-info" role="status" aria-hidden="true"></span>
+                        </h2>
                     </div>
                     <div class="bg-info bg-opacity-10 p-3 rounded-3 text-info">
                         <i class="bi bi-buildings fs-4"></i>
@@ -100,4 +112,69 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function () {
+        // Fetch Siswa Data (Total & Aktif Magang)
+        $.ajax({
+            url: '{{ route("admin.siswa.data") }}',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                if (response && response.data) {
+                    const totalSiswa = response.data.length;
+                    const aktifSiswa = response.data.filter(function (siswa) {
+                        return siswa.status === 'aktif';
+                    }).length;
+
+                    $('#stat_total_siswa').text(totalSiswa);
+                    $('#stat_siswa_aktif').text(aktifSiswa);
+                } else {
+                    $('#stat_total_siswa').text('Error');
+                    $('#stat_siswa_aktif').text('Error');
+                }
+            },
+            error: function () {
+                $('#stat_total_siswa').text('Error');
+                $('#stat_siswa_aktif').text('Error');
+            }
+        });
+
+        // Fetch Guru Data (Total Guru)
+        $.ajax({
+            url: '{{ route("admin.guru.data") }}',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                if (response && response.data) {
+                    $('#stat_total_guru').text(response.data.length);
+                } else {
+                    $('#stat_total_guru').text('Error');
+                }
+            },
+            error: function () {
+                $('#stat_total_guru').text('Error');
+            }
+        });
+
+        // Fetch DUDI Data (Total DUDI)
+        $.ajax({
+            url: '{{ route("admin.dudi.data") }}',
+            type: 'GET',
+            dataType: 'json',
+            success: function (response) {
+                if (response && response.data) {
+                    $('#stat_total_dudi').text(response.data.length);
+                } else {
+                    $('#stat_total_dudi').text('Error');
+                }
+            },
+            error: function () {
+                $('#stat_total_dudi').text('Error');
+            }
+        });
+    });
+</script>
 @endsection
