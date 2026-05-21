@@ -6,11 +6,12 @@ use App\Http\Controllers\Admin\GuruController;
 use App\Http\Controllers\Admin\SiswaController;
 use App\Http\Controllers\Admin\DudiController;
 use App\Http\Controllers\Admin\MagangController;
+use App\Http\Controllers\Admin\PengaturanController;
 
 // Redirect root URL langsung ke beranda admin (sementara)
 Route::redirect('/', '/admin/beranda');
 
-// Route Group untuk area Admin
+// Route Group untuk Admin
 Route::prefix('admin')->name('admin.')->group(function () {
 
     // Route Dashboard / Beranda
@@ -39,4 +40,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     // Route Master Data - Magang
     Route::get('/magang', [MagangController::class, 'index'])->name('magang.index');
+
+    // Route Pengaturan Sekolah
+    Route::get('/pengaturan', [PengaturanController::class, 'index'])->name('pengaturan.index');
 });

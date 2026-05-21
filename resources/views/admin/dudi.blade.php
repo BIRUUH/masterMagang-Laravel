@@ -13,7 +13,7 @@
         </button>
     </div>
 
-    <!-- Alert Error Fetch Data -->
+    <!-- Alert Error Get Data -->
     <div id="dudiError" class="card border-0 rounded-3 mb-4 bg-danger bg-opacity-10 d-none">
         <div class="card-body p-4 d-flex align-items-center">
             <i class="bi bi-exclamation-triangle-fill text-danger fs-2 me-3"></i>
@@ -55,7 +55,7 @@
     </div>
 
     <!-- Toast Container (pojok kanan atas) -->
-    <div class="toast-container position-fixed top-0 end p-3" style="z-index: 1100;">
+    <div class="toast-container position-fixed end-0 top-0 p-3" style="z-index: 1100;">
         <div id="toastNotif" class="toast align-items-center border-0 text-white" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body d-flex align-items-center gap-2">
@@ -114,8 +114,8 @@
                             <div class="col-md-6 mb-3">
                                 <label for="tambah_status" class="form-label">Status <span class="text-danger">*</span></label>
                                 <select class="form-select" id="tambah_status" name="status" required>
-                                    <option value="Aktif">Aktif</option>
-                                    <option value="Tidak Aktif">Tidak Aktif</option>
+                                    <option value="aktif">aktif</option>
+                                    <option value="tidak aktif">tidak aktif</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Status wajib dipilih.
@@ -190,8 +190,8 @@
                             <div class="col-md-6 mb-3">
                                 <label for="edit_status" class="form-label">Status <span class="text-danger">*</span></label>
                                 <select class="form-select" id="edit_status" name="status" required>
-                                    <option value="Aktif">Aktif</option>
-                                    <option value="Tidak Aktif">Tidak Aktif</option>
+                                    <option value="aktif">aktif</option>
+                                    <option value="tidak aktif">tidak aktif</option>
                                 </select>
                                 <div class="invalid-feedback">
                                     Status wajib dipilih.

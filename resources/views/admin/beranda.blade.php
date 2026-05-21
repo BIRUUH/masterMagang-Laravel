@@ -117,7 +117,6 @@
 @section('scripts')
 <script>
     $(document).ready(function () {
-        // Fetch Siswa Data (Total & Aktif Magang)
         $.ajax({
             url: '{{ route("admin.siswa.data") }}',
             type: 'GET',
@@ -142,7 +141,6 @@
             }
         });
 
-        // Fetch Guru Data (Total Guru)
         $.ajax({
             url: '{{ route("admin.guru.data") }}',
             type: 'GET',
@@ -159,7 +157,6 @@
             }
         });
 
-        // Fetch DUDI Data (Total DUDI)
         $.ajax({
             url: '{{ route("admin.dudi.data") }}',
             type: 'GET',

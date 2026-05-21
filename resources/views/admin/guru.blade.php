@@ -13,7 +13,7 @@
         </button>
     </div>
 
-    <!-- Alert Error Fetch Data -->
+    <!-- Alert Error Get Data -->
     <div id="guruError" class="card border-0 rounded-3 mb-4 bg-danger bg-opacity-10 d-none">
         <div class="card-body p-4 d-flex align-items-center">
             <i class="bi bi-exclamation-triangle-fill text-danger fs-2 me-3"></i>
@@ -53,14 +53,16 @@
     </div>
 
     <!-- Toast Container (pojok kanan atas) -->
-    <div class="toast-container position-fixed top-0 end p-3" style="z-index: 1100;">
-        <div id="toastNotif" class="toast align-items-center border-0 text-white" role="alert" aria-live="assertive" aria-atomic="true">
+    <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 1100;">
+        <div id="toastNotif" class="toast align-items-center border-0 text-white" role="alert" aria-live="assertive"
+            aria-atomic="true">
             <div class="d-flex">
                 <div class="toast-body d-flex align-items-center gap-2">
                     <i id="toastIcon" class="bi fs-5"></i>
                     <span id="toastMessage"></span>
                 </div>
-                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
             </div>
         </div>
     </div>
@@ -77,17 +79,19 @@
                 <form id="formTambahGuru" novalidate class="needs-validation">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="tambah_nama_guru" class="form-label">Nama Guru <span class="text-danger">*</span></label>
+                            <label for="tambah_nama_guru" class="form-label">Nama Guru <span
+                                    class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="tambah_nama_guru" name="nama_guru"
-                                   placeholder="Masukkan nama lengkap guru" required minlength="3">
+                                placeholder="Masukkan nama lengkap guru" required minlength="3">
                             <div class="invalid-feedback">
                                 Nama guru wajib diisi (minimal 3 karakter).
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="tambah_bidang_keahlian" class="form-label">Bidang Keahlian <span class="text-danger">*</span></label>
+                            <label for="tambah_bidang_keahlian" class="form-label">Bidang Keahlian <span
+                                    class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="tambah_bidang_keahlian" name="bidang_keahlian"
-                                   placeholder="Contoh: Rekayasa Perangkat Lunak" required>
+                                placeholder="Contoh: Rekayasa Perangkat Lunak" required>
                             <div class="invalid-feedback">
                                 Bidang keahlian wajib diisi.
                             </div>
@@ -95,7 +99,7 @@
                         <div class="mb-3">
                             <label for="tambah_email" class="form-label">Email <span class="text-danger">*</span></label>
                             <input type="email" class="form-control" id="tambah_email" name="email"
-                                   placeholder="Contoh: guru@sekolah.sch.id" required>
+                                placeholder="Contoh: guru@sekolah.sch.id" required>
                             <div class="invalid-feedback">
                                 Email wajib diisi dengan format yang valid.
                             </div>
@@ -114,7 +118,8 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-primary" id="btnSimpanTambah">
-                            <span class="spinner-border spinner-border-sm d-none me-1" id="loadingTambah" role="status" aria-hidden="true"></span>
+                            <span class="spinner-border spinner-border-sm d-none me-1" id="loadingTambah" role="status"
+                                aria-hidden="true"></span>
                             Simpan Data
                         </button>
                     </div>
@@ -135,17 +140,19 @@
                     <input type="hidden" id="edit_id">
                     <div class="modal-body">
                         <div class="mb-3">
-                            <label for="edit_nama_guru" class="form-label">Nama Guru <span class="text-danger">*</span></label>
+                            <label for="edit_nama_guru" class="form-label">Nama Guru <span
+                                    class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="edit_nama_guru" name="nama_guru"
-                                   placeholder="Masukkan nama lengkap guru" required minlength="3">
+                                placeholder="Masukkan nama lengkap guru" required minlength="3">
                             <div class="invalid-feedback">
                                 Nama guru wajib diisi (minimal 3 karakter).
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="edit_bidang_keahlian" class="form-label">Bidang Keahlian <span class="text-danger">*</span></label>
+                            <label for="edit_bidang_keahlian" class="form-label">Bidang Keahlian <span
+                                    class="text-danger">*</span></label>
                             <input type="text" class="form-control" id="edit_bidang_keahlian" name="bidang_keahlian"
-                                   placeholder="Contoh: Rekayasa Perangkat Lunak" required>
+                                placeholder="Contoh: Rekayasa Perangkat Lunak" required>
                             <div class="invalid-feedback">
                                 Bidang keahlian wajib diisi.
                             </div>
@@ -153,7 +160,7 @@
                         <div class="mb-3">
                             <label for="edit_email" class="form-label">Email <span class="text-danger">*</span></label>
                             <input type="email" class="form-control" id="edit_email" name="email"
-                                   placeholder="Contoh: guru@sekolah.sch.id" required>
+                                placeholder="Contoh: guru@sekolah.sch.id" required>
                             <div class="invalid-feedback">
                                 Email wajib diisi dengan format yang valid.
                             </div>
@@ -172,7 +179,8 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                         <button type="submit" class="btn btn-warning" id="btnSimpanEdit">
-                            <span class="spinner-border spinner-border-sm d-none me-1" id="loadingEdit" role="status" aria-hidden="true"></span>
+                            <span class="spinner-border spinner-border-sm d-none me-1" id="loadingEdit" role="status"
+                                aria-hidden="true"></span>
                             Simpan Perubahan
                         </button>
                     </div>
@@ -192,13 +200,15 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body pt-2">
-                    <p class="text-muted mb-0">Yakin ingin menghapus data <strong id="hapusNamaGuru"></strong>? Tindakan ini tidak dapat dibatalkan.</p>
+                    <p class="text-muted mb-0">Yakin ingin menghapus data <strong id="hapusNamaGuru"></strong>? Tindakan ini
+                        tidak dapat dibatalkan.</p>
                     <input type="hidden" id="hapus_id">
                 </div>
                 <div class="modal-footer border-0 pt-0">
                     <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Batal</button>
                     <button type="button" class="btn btn-danger btn-sm" id="btnKonfirmasiHapus">
-                        <span class="spinner-border spinner-border-sm d-none me-1" id="loadingHapus" role="status" aria-hidden="true"></span>
+                        <span class="spinner-border spinner-border-sm d-none me-1" id="loadingHapus" role="status"
+                            aria-hidden="true"></span>
                         Hapus
                     </button>
                 </div>
@@ -215,9 +225,9 @@
             // Helper: Tampilkan Toast Notifikasi
             // type: 'success' | 'error'
             function showToast(message, type = 'success') {
-                const toastEl  = $('#toastNotif');
-                const icon     = $('#toastIcon');
-                const msgEl    = $('#toastMessage');
+                const toastEl = $('#toastNotif');
+                const icon = $('#toastIcon');
+                const msgEl = $('#toastMessage');
 
                 // Reset class warna
                 toastEl.removeClass('bg-success bg-danger');
@@ -233,7 +243,9 @@
                 msgEl.text(message);
 
                 // Tampilkan toast (auto-hide 4 detik)
-                const toast = new bootstrap.Toast(toastEl[0], { delay: 4000 });
+                const toast = new bootstrap.Toast(toastEl[0], {
+                    delay: 4000
+                });
                 toast.show();
             }
 
@@ -255,62 +267,62 @@
             function renderRows(data) {
                 if (!data || !data.length) {
                     return `
-                        <tr>
-                            <td colspan="6" class="text-center py-4 text-muted">Belum ada data guru pembimbing.</td>
-                        </tr>
-                    `;
+                                    <tr>
+                                        <td colspan="6" class="text-center py-4 text-muted">Belum ada data guru pembimbing.</td>
+                                    </tr>
+                                `;
                 }
 
                 return data.map(function (guru) {
-                    let badgeClass = guru.status === 'aktif'
-                        ? 'bg-success text-success'
-                        : 'bg-danger text-danger';
+                    let badgeClass = guru.status === 'aktif' ?
+                        'bg-success text-success' :
+                        'bg-warning text-warning';
 
                     return `
-                        <tr>
-                            <td class="ps-4">${guru.id}</td>
-                            <td class="fw-semibold">${guru.nama_guru}</td>
-                            <td>${guru.bidang_keahlian}</td>
-                            <td>${guru.email}</td>
-                            <td>
-                                <span class="badge bg-opacity-10 ${badgeClass} px-3 py-2 rounded-pill">
-                                    ${guru.status}
-                                </span>
-                            </td>
-                            <td class="text-end pe-4">
-                                <button
-                                    class="btn btn-sm btn-light text-primary border btn-edit me-1"
-                                    data-id="${guru.id}"
-                                    data-nama_guru="${guru.nama_guru}"
-                                    data-bidang_keahlian="${guru.bidang_keahlian}"
-                                    data-email="${guru.email}"
-                                    data-status="${guru.status}"
-                                    title="Edit">
-                                    <i class="bi bi-pencil"></i>
-                                </button>
-                                <button
-                                    class="btn btn-sm btn-light text-danger border btn-hapus"
-                                    data-id="${guru.id}"
-                                    data-nama="${guru.nama_guru}"
-                                    title="Hapus">
-                                    <i class="bi bi-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    `;
+                                    <tr>
+                                        <td class="ps-4">${guru.id}</td>
+                                        <td class="fw-semibold">${guru.nama_guru}</td>
+                                        <td>${guru.bidang_keahlian}</td>
+                                        <td>${guru.email}</td>
+                                        <td>
+                                            <span class="badge bg-opacity-10 ${badgeClass} px-3 py-2 rounded-pill">
+                                                ${guru.status}
+                                            </span>
+                                        </td>
+                                        <td class="text-end pe-4">
+                                            <button
+                                                class="btn btn-sm btn-light text-primary border btn-edit me-1"
+                                                data-id="${guru.id}"
+                                                data-nama_guru="${guru.nama_guru}"
+                                                data-bidang_keahlian="${guru.bidang_keahlian}"
+                                                data-email="${guru.email}"
+                                                data-status="${guru.status}"
+                                                title="Edit">
+                                                <i class="bi bi-pencil"></i>
+                                            </button>
+                                            <button
+                                                class="btn btn-sm btn-light text-danger border btn-hapus"
+                                                data-id="${guru.id}"
+                                                data-nama="${guru.nama_guru}"
+                                                title="Hapus">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                `;
                 }).join('');
             }
 
             // endpoint GET /admin/guru/data
             function loadGuru() {
                 $('#guruTableBody').html(`
-                    <tr>
-                        <td colspan="6" class="text-center py-4 text-muted">
-                            <div class="spinner-border spinner-border-sm me-2" role="status"></div>
-                            Memuat data...
-                        </td>
-                    </tr>
-                `);
+                                <tr>
+                                    <td colspan="6" class="text-center py-4 text-muted">
+                                        <div class="spinner-border spinner-border-sm me-2" role="status"></div>
+                                        Memuat data...
+                                    </td>
+                                </tr>
+                            `);
 
                 $.ajax({
                     url: '{{ route("admin.guru.data") }}',
@@ -328,7 +340,6 @@
                     }
                 });
             }
-
             loadGuru();
 
             // Reset validasi saat modal tambah ditutup
@@ -338,27 +349,30 @@
 
             // POST: Tambah data guru baru
             $('#formTambahGuru').on('submit', function (e) {
+                // Mencegah submit form default agar tidak reload halaman
                 e.preventDefault();
 
                 // Cek validasi — jika gagal, tampilkan invalid-feedback & stop
                 if (!validateForm($(this))) return;
 
-                let btn     = $('#btnSimpanTambah');
+                let btn = $('#btnSimpanTambah');
                 let spinner = $('#loadingTambah');
 
                 let formData = {
-                    nama_guru:       $('#tambah_nama_guru').val().trim(),
+                    nama_guru: $('#tambah_nama_guru').val().trim(),
                     bidang_keahlian: $('#tambah_bidang_keahlian').val().trim(),
-                    email:           $('#tambah_email').val().trim(),
-                    status:          $('#tambah_status').val()
+                    email: $('#tambah_email').val().trim(),
+                    status: $('#tambah_status').val()
                 };
 
                 $.ajax({
-                    url:         '{{ route("admin.guru.store") }}',
-                    type:        'POST',
-                    data:        JSON.stringify(formData),
+                    url: '{{ route("admin.guru.store") }}',
+                    type: 'POST',
+                    data: JSON.stringify(formData),
                     contentType: 'application/json',
-                    headers:     { 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
                     beforeSend: function () {
                         btn.prop('disabled', true);
                         spinner.removeClass('d-none');
@@ -385,7 +399,6 @@
             // Klik tombol Edit → isi modal & tampilkan
             $(document).on('click', '.btn-edit', function () {
                 let btn = $(this);
-
                 // Reset validasi sebelum isi ulang data
                 resetValidation($('#formEditGuru'));
 
@@ -397,36 +410,33 @@
 
                 $('#modalEditGuru').modal('show');
             });
-
             // Reset validasi saat modal edit ditutup
             $('#modalEditGuru').on('hidden.bs.modal', function () {
                 resetValidation($('#formEditGuru'));
             });
-
             // PUT: Update data guru
             $('#formEditGuru').on('submit', function (e) {
                 e.preventDefault();
-
                 // Cek validasi jika gagal, tampilkan invalid-feedback & stop
                 if (!validateForm($(this))) return;
 
-                let id      = $('#edit_id').val();
-                let btn     = $('#btnSimpanEdit');
+                let id = $('#edit_id').val();
+                let btn = $('#btnSimpanEdit');
                 let spinner = $('#loadingEdit');
-
                 let formData = {
-                    nama_guru:       $('#edit_nama_guru').val().trim(),
+                    nama_guru: $('#edit_nama_guru').val().trim(),
                     bidang_keahlian: $('#edit_bidang_keahlian').val().trim(),
-                    email:           $('#edit_email').val().trim(),
-                    status:          $('#edit_status').val()
+                    email: $('#edit_email').val().trim(),
+                    status: $('#edit_status').val()
                 };
-
                 $.ajax({
-                    url:         `{{ url('admin/guru') }}/${id}`,
-                    type:        'PUT',
-                    data:        JSON.stringify(formData),
+                    url: `{{ url('admin/guru') }}/${id}`,
+                    type: 'PUT',
+                    data: JSON.stringify(formData),
                     contentType: 'application/json',
-                    headers:     { 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
                     beforeSend: function () {
                         btn.prop('disabled', true);
                         spinner.removeClass('d-none');
@@ -458,14 +468,16 @@
 
             //  DELETE: Hapus data guru
             $('#btnKonfirmasiHapus').on('click', function () {
-                let id      = $('#hapus_id').val();
-                let btn     = $(this);
+                let id = $('#hapus_id').val();
+                let btn = $(this);
                 let spinner = $('#loadingHapus');
 
                 $.ajax({
-                    url:     `{{ url('admin/guru') }}/${id}`,
-                    type:    'DELETE',
-                    headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' },
+                    url: `{{ url('admin/guru') }}/${id}`,
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
                     beforeSend: function () {
                         btn.prop('disabled', true);
                         spinner.removeClass('d-none');
@@ -486,7 +498,6 @@
                     }
                 });
             });
-
         });
     </script>
 @endsection
