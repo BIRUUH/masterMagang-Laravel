@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\DudiController;
 use App\Http\Controllers\Admin\MagangController;
 use App\Http\Controllers\Admin\PengaturanController;
 
-// Redirect root URL langsung ke beranda admin (sementara)
+// Redirect root URL langsung ke beranda admin
 Route::redirect('/', '/admin/beranda');
 
 // Route Group untuk Admin
@@ -22,7 +22,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/siswa/data', [SiswaController::class, 'getData'])->name('siswa.data');
     Route::post('/siswa', [SiswaController::class, 'store'])->name('siswa.store');
     Route::put('/siswa/{id}', [SiswaController::class, 'update'])->name('siswa.update');
-    Route::delete('/siswa/{id}', [SiswaController::class, 'destroy'])->name('siswa.destroy');
+    Route::delete('/siswa/{id}', [SiswaController::class, 'destroy'])->name('siswa.destroy'); // route parameter
 
     // Route Master Data - Guru
     Route::get('/guru', [GuruController::class, 'index'])->name('guru.index');

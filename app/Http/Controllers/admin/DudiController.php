@@ -39,7 +39,6 @@ class DudiController extends Controller
             return response()->json([
                 'error' => 'Server mengembalikan status ' . $httpResponse->status() . '. Silakan coba beberapa saat lagi.'
             ], $httpResponse->status());
-
         } catch (ConnectionException $e) {
             return response()->json([
                 'error' => 'Gagal terhubung ke server. Periksa koneksi internet Anda.'
@@ -58,8 +57,12 @@ class DudiController extends Controller
     {
         try {
             $payload = $request->only([
-                'nama_dudi', 'alamat', 'email',
-                'penanggung_jawab', 'status', 'kuota'
+                'nama_dudi',
+                'alamat',
+                'email',
+                'penanggung_jawab',
+                'status',
+                'kuota'
             ]);
 
             $response = Http::post($this->apiUrl, $payload);
@@ -72,7 +75,6 @@ class DudiController extends Controller
                 'error' => 'MockAPI menolak permintaan.',
                 'detail' => $response->json()
             ], $response->status());
-
         } catch (\Exception $e) {
             return response()->json([
                 'error' => 'Terjadi kesalahan pada server Laravel.',
@@ -87,8 +89,12 @@ class DudiController extends Controller
     {
         try {
             $payload = $request->only([
-                'nama_dudi', 'alamat', 'email',
-                'penanggung_jawab', 'status', 'kuota'
+                'nama_dudi',
+                'alamat',
+                'email',
+                'penanggung_jawab',
+                'status',
+                'kuota'
             ]);
 
             $response = Http::put($this->apiUrl . '/' . $id, $payload);
@@ -101,7 +107,6 @@ class DudiController extends Controller
                 'error' => 'MockAPI menolak permintaan update.',
                 'detail' => $response->json()
             ], $response->status());
-
         } catch (\Exception $e) {
             return response()->json([
                 'error' => 'Terjadi kesalahan pada server Laravel.',
@@ -125,7 +130,6 @@ class DudiController extends Controller
                 'error' => 'MockAPI menolak permintaan hapus.',
                 'detail' => $response->json()
             ], $response->status());
-
         } catch (\Exception $e) {
             return response()->json([
                 'error' => 'Terjadi kesalahan pada server Laravel.',

@@ -8,7 +8,6 @@ class BerandaController extends Controller
 {
     public function index()
     {
-        // Simulasi data aktivitas terbaru untuk membuat dashboard lebih "hidup"
         $aktivitasTerbaru = [
             ['waktu' => '10 Menit yang lalu', 'deskripsi' => 'Budi Santoso memulai magang di PT. Teknologi Jaya', 'tipe' => 'success'],
             ['waktu' => '1 Jam yang lalu', 'deskripsi' => 'Guru Ahmad Faisal menambahkan jurnal bimbingan', 'tipe' => 'primary'],
